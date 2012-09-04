@@ -14,6 +14,15 @@
  */
 define('IN_CMSHOP', TRUE);
 require (dirname(__FILE__) . '/inc.php');
-base_cmshop::smarty() -> assign('shop_url', "..");
-base_cmshop::smarty() -> display('index.html');
+
+$act = isset($_GET['act']) ? $_GET['act'] : '';
+if (empty($act))
+	exit('get act code err!');
+
+$st = isset($_GET['st']) ? $_GET['st'] : '';
+if (empty($st))
+	exit('get st code err!');
+
+$tmpObjName = 'act_' . $act;
+$tmpObjName::$st();
 ?>

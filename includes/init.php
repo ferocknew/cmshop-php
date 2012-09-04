@@ -29,10 +29,12 @@ require (ROOT_PATH . 'includes/config.php');
  */
 include ROOT_PATH . '/includes/base/autoload.class.php';
 base_autoloader::init();
-
 // 挂载常量文件
 include ROOT_PATH . '/includes/inc_constant.php';
 
+$url = defined('ADMIN_DIR') ? str_replace(ADMIN_DIR . "/", "", static_function::curURL()) : static_function::curURL();
+define('ROOT_URL', $url);
+base_cmshop::smarty() -> assign('root_url', ROOT_URL);
 if (DEBUG_MODE) {
 	error_reporting(E_ALL ^ E_NOTICE);
 } else {
