@@ -7,18 +7,11 @@
 class act_admin_index {
 
 	/**
-	 * index 顶部
-	 */
-	public static function top() {
-		base_cmshop::smarty() -> display('top.html');
-	}
-
-	/**
 	 * index 主题
 	 */
 	public static function main() {
 		echo '..';
-		
+
 	}
 
 	/**
@@ -26,6 +19,13 @@ class act_admin_index {
 	 */
 	public static function menu() {
 		base_cmshop::smarty() -> display('menu.html');
+	}
+
+	/**
+	 * index 顶部
+	 */
+	public static function top() {
+		base_cmshop::smarty() -> display('top.html');
 	}
 
 }
