@@ -16,9 +16,9 @@ class base_cmshop {
 
 		$templates = defined('ADMIN_DIR') ? ROOT_PATH . ADMIN_DIR . '/templates' : ROOT_PATH . '/templates';
 		$compiled = defined('ADMIN_DIR') ? ROOT_PATH . 'temp/compiled/' . ADMIN_DIR : ROOT_PATH . 'temp/compiled/';
-		if (!is_dir($compiled))
-			static_function::mkdirs($compiled);
-		
+		// if (!is_dir($compiled))，用于 SEO 优化
+		// static_function::mkdirs($compiled);
+
 		self::$smarty -> template_dir = $templates;
 		self::$smarty -> compile_dir = $compiled;
 		return self::$smarty;
