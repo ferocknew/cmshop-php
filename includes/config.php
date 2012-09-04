@@ -7,4 +7,7 @@ define('MYSQL_MASTER_USERNAME', 'root');
 define('MYSQL_MASTER_PASSWORD', 'root123');
 define('MYSQL_MASTER_CHARSET', 'UTF8');
 
+
+// TABLE TOP
+define('TABLE_PREFIX', 'CS_');
 ?>

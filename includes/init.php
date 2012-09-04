@@ -12,7 +12,6 @@
  *
  * Date: Wed Aug 22 16:14:11 2012 +0800
  */
-define('IN_CMSHOP', TRUE);
 if (!defined('IN_CMSHOP')) {
 	die('Hacking attempt');
 }
