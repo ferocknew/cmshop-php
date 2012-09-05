@@ -14,5 +14,15 @@ class act_admin_set {
 
 	}
 
+	/**
+	 * 站点设置保存
+	 * @author	jonah.fu
+	 * @date	2012-09-05
+	 */
+	public static function cms_config_save() {
+		print_r($_POST);
+		exit ;
+	}
+
 }
 ?>

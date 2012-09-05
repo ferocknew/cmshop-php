@@ -8,6 +8,6 @@ define('MYSQL_MASTER_PASSWORD', 'root123');
 define('MYSQL_MASTER_CHARSET', 'UTF8');
 
 // TABLE TOP
-define('TABLE_PREFIX', 'CS_');
+define('TABLE_PREFIX', 'cs_');
 define('BASE_CHARSET', 'utf-8');
 ?>
