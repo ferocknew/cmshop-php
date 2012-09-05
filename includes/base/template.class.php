@@ -524,7 +524,7 @@ class base_template {
 						$p = '$this->img_url(' . $p . ')';
 						break;
 					default :
-					# code...
+						# code...
 						break;
 				}
 			}
@@ -862,7 +862,7 @@ class base_template {
 				break;
 
 			default :
-			// $this->_syntax_error('$smarty.' . $_ref . ' is an unknown reference', E_USER_ERROR, __FILE__, __LINE__);
+				// $this->_syntax_error('$smarty.' . $_ref . ' is an unknown reference', E_USER_ERROR, __FILE__, __LINE__);
 				break;
 		}
 		array_shift($indexes);
@@ -961,7 +961,7 @@ class base_template {
 			'/(href=["|\'])\.\.\/(.*?)(["|\'])/i', // 替换相对链接
 			'/((?:background|src)\s*=\s*["|\'])(?:\.\/|\.\.\/)?(images\/.*?["|\'])/is', // 在images前加上 $tmp_dir
 			'/((?:background|background-image):\s*?url\()(?:\.\/|\.\.\/)?(images\/)/is', // 在images前加上 $tmp_dir
-			'/([\'|"])\.\.\//is',  // 以../开头的路径全部修正为空
+			'/([\'|"])\.\.\//is', // 以../开头的路径全部修正为空
 		);
 		$replace = array(
 			'\1',
@@ -980,7 +980,6 @@ class base_template {
 		$para = unserialize($para);
 		// $fun = 'static_insert::insert_' . $fun;
 		$fun = 'insert_' . $fun;
-		
 
 		return $fun($para);
 	}
@@ -1208,41 +1207,32 @@ class base_template {
 
 		return $str;
 	}
-	
+
 	/**
-     * 自动动态地将后台添加的图片地址添加上域名路径
-     * @param string $str
-     */
-    function img_url($str)
-    {
-    	$replaceUrl = IMG_PATH;
-    	if(strlen($str)>0)
-    	{
-    		if(preg_match_all('/<[img|IMG].*?[src|SRC]=[\'|\"](.*?(?:[\.gif|\.jpg|\.jpeg|\.png|\.bmp|\.JPG|\.JPEG|\.GIF|\.PNG|\.BMP]))[\'|\"].*?[\/]?>/', $str, $result))
-			{				
-				if(isset($result[1]))
-				{
+	 * 自动动态地将后台添加的图片地址添加上域名路径
+	 * @param string $str
+	 */
+	function img_url($str) {
+		$replaceUrl = IMG_PATH;
+		if (strlen($str) > 0) {
+			if (preg_match_all('/<[img|IMG].*?[src|SRC]=[\'|\"](.*?(?:[\.gif|\.jpg|\.jpeg|\.png|\.bmp|\.JPG|\.JPEG|\.GIF|\.PNG|\.BMP]))[\'|\"].*?[\/]?>/', $str, $result)) {
+				if (isset($result[1])) {
 					$res = array_unique($result[1]);
-					foreach ($res as $url)
-					{						
-						if(strpos($url,$replaceUrl) !== FALSE)
-						{
-							$replaceto = $GLOBALS['img_servers'][array_rand($GLOBALS['img_servers'])].str_replace($replaceUrl, '', $url);
+					foreach ($res as $url) {
+						if (strpos($url, $replaceUrl) !== FALSE) {
+							$replaceto = $GLOBALS['img_servers'][array_rand($GLOBALS['img_servers'])] . str_replace($replaceUrl, '', $url);
 							$str = str_replace($url, $replaceto, $str);
 						}
 					}
 				}
-			}
-			else 
-			{
-				if(strpos($str,$replaceUrl) !== FALSE)
-				{
+			} else {
+				if (strpos($str, $replaceUrl) !== FALSE) {
 					$str = str_replace($replaceUrl, '', $str);
 				}
 			}
-    	}
-    	return $str;
-    }
+		}
+		return $str;
+	}
 
 }
 ?>

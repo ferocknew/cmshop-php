@@ -34,6 +34,13 @@ include ROOT_PATH . '/includes/inc_constant.php';
 
 $url = defined('ADMIN_DIR') ? str_replace(ADMIN_DIR . "/", "", static_function::curURL()) : static_function::curURL();
 define('ROOT_URL', $url);
+$templates = defined('ADMIN_DIR') ? ROOT_PATH . ADMIN_DIR . '/templates' : ROOT_PATH . '/templates';
+$compiled = defined('ADMIN_DIR') ? ROOT_PATH . 'temp/compiled/' . ADMIN_DIR : ROOT_PATH . 'temp/compiled/';
+// if (!is_dir($compiled))，用于 SEO 优化
+// static_function::mkdirs($compiled);
+
+base_cmshop::smarty() -> template_dir = $templates;
+base_cmshop::smarty() -> compile_dir = $compiled;
 base_cmshop::smarty() -> assign('root_url', ROOT_URL);
 if (DEBUG_MODE) {
 	error_reporting(E_ALL ^ E_NOTICE);
