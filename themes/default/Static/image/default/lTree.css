@@ -1,0 +1,16 @@
+.TREEMenu {margin-left:-20px;}
+.TREEMenu dl {padding:0;margin:0 0 0 17px;clear:both;}
+.TREEMenu a {background:none;}
+.TREEMenu dd {padding:0;margin:0px;list-style:none;clear:both;}
+.TREEMenu dd input,.TREEMenu dt input {vertical-align:middle;margin-top:1px;margin-top:0px; height:16px; border:none;background:none; vertical-align:middle;}
+.TREEMenu dd button {width:35px;height:18px;overflow:hidden;cursor:pointer;vertical-align:middle;border:none;background:url(tree/folder-opened.gif) no-repeat 3px 1px;}
+.TREEMenu dd.folderClose dl {display:none;}
+.TREEMenu dd.folderClose button {background-image:url(tree/folder-closed.gif);}
+.TREEMenu dd {background:url(tree/elbow-line.gif) repeat-y 0 0;}
+.TREEMenu dd.lastChild {background:url(tree/folder-last.gif) no-repeat 0 0;}
+.TREEMenu dt {margin:0px;padding:0 0 0 33px;background:url(tree/leaf-normal.gif) no-repeat 0 -2px;_background:url(tree/leaf-normal.gif) no-repeat 0 -3px;line-height:20px;}
+.TREEMenu dt.lastChild {background:url(tree/leaf-last.gif) no-repeat 0 -2px;_background:url(tree/leaf-last.gif) no-repeat 0 -3px;}
+.TREEMenu dd a,
+.TREEMenu dd a:visited {color:#0594E7;font-weight:bold;}
+.TREEMenu dt a,
+.TREEMenu dt a:visited {color:#000;font-weight:normal;}

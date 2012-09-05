@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>登陆</title>
+<link rel="shortcut icon" href="Static/Item/favicon.ico"/>
+<link href="static/image/default.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="append_parent"></div>
+<div id="loading_mask" class="loading_mask" style="display:none;"></div>
+<div id="loading_bd" class="loading_bd" style="display:none;">
+  <div class="loading_indicator"><img src="static/image/admincp/s.gif" class="img01 wh32" style="margin-right:8px;float:left;vertical-align:top;"/>CMShop加载中<br />
+    <span id="loading_msg">Loading styles and images...</span> </div>
+</div>
+<div id="ajax_tip" class="loading_tip"><img src="static/image/admincp/s.gif" class="img02 wh16" alt="正在加载" align="absmiddle">&nbsp;正在处理数据,请稍等...</div>
+<script type="text/javascript">document.getElementById('loading_msg').innerHTML = 'Loading jquery...';</script> 
+<script type="text/javascript" src="static/js/sComm.js"></script> 
+<script type="text/javascript">document.getElementById('loading_msg').innerHTML = 'Loading Core...';</script> 
+<script type="text/javascript" src="static/js/sCore.js?lib=sAccordion,sAdmincp,sTabs,sBox,sBox_"></script>
+<div class="body_wpr bgblue3" id="mainbody">
+  <table width="100%" height="100%">
+    <thead>
+      <tr>
+        <td valign="top" height="66"><div class="logo"><img src="static/Image/default/header-logo.png"/></div>
+          <div class="logobate"></div>
+          <div class="m-t-h">
+            <div class="z"></div>
+            <div class="y"></div>
+            <div class="nav">
+              <div class="mbtn">
+                <div class="UserInfo">
+                  <dt>当前用户：</dt>
+                  <dd>Administrator</dd>
+                </div>
+                <!--<div id="weather" class="pointer"></div>-->
+                <div class="Usertoos">[ <a href="javascript:void(0)" onclick="location.reload()">刷新</a> | <a target="msgframe" href="javascript:void(0)">反馈</a> | <a href="javascript:void(0)" id="personal">修改密码</a> | <a href="admin_Login.html">退出登陆</a> ]</div>
+              </div>
+              <div class="t-m-n" id="t-m-n">
+                <div class="z"></div>
+                <div class="y"></div>
+                <ul class="tabs">
+                  <li class="menuL"></LI>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM2',name:'我的桌面'},main:'',tleft:'我的桌面'})" class="current"><a href="javascript:void(0)"><span>我的桌面</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftMP',name:'门户管理'},main:''});"><a href="javascript:void(0)"><span>门户管理</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM002',name:'运营管理'},main:''})"><a href="javascript:void(0)"><span>运营管理</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM004',name:'应用管理'},main:''})" class=""><a href="javascript:void(0)"><span>应用管理</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM006',name:'数据管理'},main:''})" class=""><a href="javascript:void(0)"><span>数据管理</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM8',name:'用户管理'},main:''})"><a href="javascript:void(0)"><span>用户管理</span></a></li>
+                  <li class="menuDiv"></li>
+                  <li onClick="TT.SYSNav({obj:this,left:{id:'LeftM10',name:'全局设置'},main:''})"><a href="javascript:void(0)"><span>全局设置</span></a></li>
+                  <li class="menuR pointer"></LI>
+                </ul>
+              </div>
+            </div>
+          </div></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td valign="top"><table width="100%" height="100%">
+            <tr>
+              <td valign="top" class="l-on w150" id="o-l"><div class="x-l-tl">
+                  <div class="x-l-tr">
+                    <div class="x-l-tc">
+                      <div id="leftMenu_" class="ricon_"></div>
+                      <div class="icon ibg12"></div>
+                      <div class="licon line01"></div>
+                      <span><tt>我的桌面</tt></span> </div>
+                  </div>
+                </div>
+                <div id="l-m-n" class="l-m-n bgblue5 onResize" h="128"><!---->
+                  <ul id="LeftM2" class="l-m">
+                    <li class="bgh1"></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})" class="current"><a href="javascript:void(0)"><span>管理中心首页</span></a></li>
+                  </ul>
+                  <ul id="LeftMP" style="display:none;" class="l-m bgwhite accordion">
+                    <li class="bgh2"></li>
+                    <li> <a class="head" href="javascript:void(0)"><span>门户分类</span></a>
+                      <ul>
+                        <li>
+                          <iframe name="portalTree" id="portalTree" width="100%" height="100%" src="about:blank" frameborder="0" scrolling="auto"></iframe>
+                        </li>
+                      </ul>
+                    </li>
+                    <li> <a class="head" href="javascript:void(0)"><span>门户管理</span></a>
+                      <ul>
+                        <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>站点管理</span></a></li>
+                        <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>标签管理</span></a></li>
+                        <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>模板管理</span></a></li>
+                      </ul>
+                    </li>
+                    <li> <a class="head" href="javascript:void(0)" onclick="HtmlClass();return false;"><span>发布管理</span></a>
+                      <ul>
+                        <iframe name="HtmlTree" id="HtmlTree" width="100%" height="100%" src="about:blank" frameborder="0" scrolling="auto"></iframe>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul id="LeftM002" style="display:none;"  class="l-m">
+                    <li class="bgh1"></li>
+                    <li class="s">
+                      <div class="leftsub desc">
+                        <div onClick="TT.LeftSubNav(this)">测试链接</div>
+                        <ol style="display:;">
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                        </ol>
+                      </div>
+                    </li>
+                    <li class="s">
+                      <div class="leftsub desc">
+                        <div onClick="TT.LeftSubNav(this)">测试链接</div>
+                        <ol style="display:;">
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                        </ol>
+                      </div>
+                    </li>
+                    <li class="s">
+                      <div class="leftsub desc">
+                        <div onClick="TT.LeftSubNav(this)">测试链接</div>
+                        <ol style="display:;">
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                          <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>测试链接</span></a></li>
+                        </ol>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul id="LeftM8" style="display:none;"  class="l-m">
+                    <li class="bgh1"></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>用户管理</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>角色管理</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>单位管理</span></a></li>
+                  </ul>
+                  <ul id="LeftM10" style="display:none;"  class="l-m">
+                    <li class="bgh1"></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})" class="current"><a href="javascript:void(0)"><span>系统环境</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>基本设置</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>日志管理</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>缓存管理</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})"><a href="javascript:void(0)"><span>系统消息</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})" class="hid"><a href="javascript:void(0)"><span>日志管理</span></a></li>
+                    <li onClick="TT.LeftNav({id:this,main:''})" class="hid"><a href="javascript:void(0)"><span>数据库维护</span></a></li>
+                  </ul>
+                </div></td>
+              <td id="oscm_arrow"><div onClick="TT.HideLeft(this)" class="a-on pointer"></div></td>
+              <td valign="top" class="pr4"><div class="b-m-n">
+                  <div class="z"></div>
+                  <div class="y"></div>
+                  <ul class="tabs">
+                    <li class="menuL"></li>
+                    <li class="current"> <a href="javascript:void(0)"><span>
+                      <div class="icon ibg01"></div>
+                      <tt>我的桌面</tt></span></a> </li>
+                    <li class="menuR"></li>
+                  </ul>
+                </div>
+                <div id="m-b">
+                  <ul class="nav">
+                    当前位置：首页<a title="添加到常用操作" href="javascript:void(0)">[+]</a>
+                  </ul>
+                  <ul class="navbtmbg">
+                  </ul>
+                  <div id="main_ifm" class="body_wpr onResize" h="163"><!--/System/template/_desktop/desktop.asp  data-widget-type="Tabs" data-widget-config="{'effect':'scrollx','autoplay': true,'duration':'0.6','easing':'easeBoth'}"-->
+                    <iframe name="iframe_0" id="iframe_0" width="100%" height="100%" src="about:blank" frameborder="0" scrolling="auto" style="overflow: visible;"></iframe>
+                  </div>
+                </div></td>
+            </tr>
+          </table></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td class="b-m-t"><div class="copyright">
+            <ul class="cr_ico hand" id="born"></ul>
+            <ul class="cr_text">
+            </ul>
+          </div>
+          <div id="msg_state">
+            <div class="sysmsg pointer icon ibg02" onclick="Msg_Box();"></div>
+            <div class="sysmsgNum pointer bold" id="MsgNum" onClick="CheckMsg();">(0)</div>
+            <div class="partition"></div>
+            <div class="online_ico icon ibg05"></div>
+            <div class="online_text pointer" id="SysOnline"> 在线 <span>0</span> 人 </div>
+          </div></td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<div class="g-menu" id="personal_menu">
+  <div class="g-menu-inner">
+    <ul class="g-menu-list">
+      <a class="hidefocus"></a>
+      <li><a href="javascript:void(0);" id="per_password"><span>修改密码</span></a></li>
+    </ul>
+  </div>
+</div>
+<iframe id="msgframe" name="msgframe" src="" style="display:none;" frameborder="0"></iframe>
+<script type="text/javascript">
+function CheckMsg(){
+	try{
+		var NoPop = TT.cookie('NoPop');
+		if (NoPop=="1"){TT.cookie('NoPop','2',720);}
+		Refresh_Msg();
+	}catch(e){}
+}
+function Refresh_Msg(){
+	window.msgframe.location="admin_SysMessage.php?s="+Math.random();
+}
+function Msg_Box(){
+	TT.winDD("admin_SysMessage_List.php",{
+		id : 'MsgBox',
+		lock : false,
+		top : "60%",
+		width : "90%",
+		height : "80%",
+		title : '消息盒子'
+	});
+}
+//var SYS = {};
+//SYS.TT = (function (){
+//	return {
+//		Init: function(){
+//			var getOnLine = function(){
+//				$.getJSON("admin_Common.asp?gAction=GetInfo&strType=Show",function(data) {
+//					$("#SysOnline>span").text(data["online"]);
+//					$(".cr_text").html(data["notes"]);
+//				})
+//			}
+//			var moveupli = function(){
+//				var _wrap=$('ul.cr_text');
+//				var _interval=5000;
+//				var _moving;
+//				_wrap.hover(function(){
+//					clearInterval(_moving);
+//				},function(){
+//					_moving=setInterval(function(){
+//						var _field=_wrap.find('li:first');
+//						var _h=_field.height();
+//						_field.animate({marginTop:-_h+'px'},600,function(){
+//							_field.css('marginTop',0).appendTo(_wrap);
+//						})
+//					},_interval)
+//				}).trigger('mouseleave');
+//			}
+//			window.setInterval(function(){
+//				//Refresh_Msg();
+//				getOnLine();
+//				//moveupli();
+//			},60000);
+//			//setTimeout("return Refresh_Msg()",1500);
+//			return getOnLine();
+//		}
+//	};
+//})();
+//SYS.TT.Init();
+</script> 
+</body>
+</html>
