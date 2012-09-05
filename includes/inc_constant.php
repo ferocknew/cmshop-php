@@ -12,8 +12,7 @@
  *
  * Date: Wed Aug 22 16:14:11 2012 +0800
  */
-define('IN_CMSHOP', TRUE);
-require (dirname(__FILE__) . '/inc.php');
-base_cmshop::smarty() -> assign('shop_url', "..");
-base_cmshop::smarty() -> display('index.html');
+
+// DEBUG MODE
+define('DEBUG_MODE', TRUE);
 ?>
