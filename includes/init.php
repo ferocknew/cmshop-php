@@ -31,13 +31,20 @@ include ROOT_PATH . '/includes/base/autoload.class.php';
 base_autoloader::init();
 // 挂载常量文件
 include ROOT_PATH . '/includes/inc_constant.php';
-
 $url = defined('ADMIN_DIR') ? str_replace(ADMIN_DIR . "/", "", static_function::curURL()) : static_function::curURL();
 define('ROOT_URL', $url);
+
+// 处理'引号
+if (!get_magic_quotes_gpc()) {
+	$_GET = static_function::strip_array($_GET);
+	$_POST = static_function::strip_array($_POST);
+	$_COOKIE = static_function::strip_array($_COOKIE);
+}
+
 $templates = defined('ADMIN_DIR') ? ROOT_PATH . ADMIN_DIR . '/templates' : ROOT_PATH . '/templates';
 $compiled = defined('ADMIN_DIR') ? ROOT_PATH . 'temp/compiled/' . ADMIN_DIR : ROOT_PATH . 'temp/compiled/';
-// if (!is_dir($compiled))，用于 SEO 优化
-// static_function::mkdirs($compiled);
+if (!is_dir($compiled))//用于 SEO 优化
+	static_function::mkdirs($compiled);
 
 base_cmshop::smarty() -> template_dir = $templates;
 base_cmshop::smarty() -> compile_dir = $compiled;

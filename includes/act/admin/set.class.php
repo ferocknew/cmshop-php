@@ -20,8 +20,19 @@ class act_admin_set {
 	 * @date	2012-09-05
 	 */
 	public static function cms_config_save() {
-		print_r($_POST);
-		exit ;
+		if (empty($_POST))
+			exit(OUTPUT_ERR_TEXT);
+
+		$data = array();
+		foreach ($_POST as $k => $v) {
+			$kName = $k;
+			foreach ($v as $k1 => $v1) {
+				$data[$kName . '_' . $k1] = $v1;
+			}
+		}
+
+		print_r($data);
+		model_admin_set::cms_config_save($data);
 	}
 
 }

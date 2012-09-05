@@ -3,6 +3,7 @@
  * 静态 function
  */
 class static_function {
+	
 	/**
 	 * 获取page URL
 	 */
@@ -58,6 +59,13 @@ class static_function {
 			}
 		}
 	}
+	
+	/**
+	 * 魔术引号
+	 */
+	public static function strip_array($var) {
+        return is_array($var)? array_map("self::strip_array", $var):addslashes($var);
+    }
 
 }
 ?>

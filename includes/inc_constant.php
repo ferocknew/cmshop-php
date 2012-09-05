@@ -15,4 +15,6 @@
 
 // DEBUG MODE
 define('DEBUG_MODE', TRUE);
+define('OUTPUT_ERR_TEXT', 'bad! err!');
+
 ?>
