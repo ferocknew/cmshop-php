@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50150
 File Encoding         : 65001
 
-Date: 2012-09-05 12:46:17
+Date: 2012-09-06 12:09:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -22,21 +22,21 @@ DROP TABLE IF EXISTS `cs_config`;
 CREATE TABLE `cs_config` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` smallint(5) unsigned NOT NULL DEFAULT '0' COMMENT '级别',
-  `code` varchar(30) NOT NULL DEFAULT '' COMMENT 'config key name',
+  `configkey` varchar(30) NOT NULL DEFAULT '' COMMENT 'config key name',
   `type` varchar(10) NOT NULL DEFAULT '' COMMENT '设置类型',
   `store_range` varchar(255) NOT NULL DEFAULT '',
   `store_dir` varchar(255) NOT NULL DEFAULT '',
   `value` varchar(4000) NOT NULL COMMENT '值',
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`code`) USING HASH,
+  UNIQUE KEY `code` (`configkey`) USING HASH,
   KEY `parent_id` (`parent_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_config
 -- ----------------------------
-INSERT INTO `cs_config` VALUES ('1', '0', 'shop_info', 'group', '', '', '', '1');
+INSERT INTO `cs_config` VALUES ('1', '0', 'info', 'group', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('2', '0', 'basic', 'group', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('3', '0', 'display', 'group', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('4', '0', 'shopping_flow', 'group', '', '', '', '1');
@@ -45,10 +45,10 @@ INSERT INTO `cs_config` VALUES ('6', '0', 'hidden', 'hidden', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('7', '0', 'goods', 'group', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('8', '0', 'sms', 'group', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('9', '0', 'wap', 'group', '', '', '', '1');
-INSERT INTO `cs_config` VALUES ('101', '1', 'shop_name', 'text', '', '', '..', '1');
-INSERT INTO `cs_config` VALUES ('102', '1', 'shop_title', 'text', '', '', '..', '1');
-INSERT INTO `cs_config` VALUES ('103', '1', 'shop_desc', 'text', '', '', '..', '1');
-INSERT INTO `cs_config` VALUES ('104', '1', 'shop_keywords', 'text', '', '', ',,', '1');
+INSERT INTO `cs_config` VALUES ('101', '1', 'info_name', 'text', '', '', '..', '1');
+INSERT INTO `cs_config` VALUES ('102', '1', 'info_title', 'text', '', '', '..', '1');
+INSERT INTO `cs_config` VALUES ('103', '1', 'info_description', 'text', '', '', '..', '1');
+INSERT INTO `cs_config` VALUES ('104', '1', 'info_keywords', 'text', '', '', ',,', '1');
 INSERT INTO `cs_config` VALUES ('105', '1', 'shop_country', 'manual', '', '', '1', '1');
 INSERT INTO `cs_config` VALUES ('106', '1', 'shop_province', 'manual', '', '', '2', '1');
 INSERT INTO `cs_config` VALUES ('107', '1', 'shop_city', 'manual', '', '', '52', '1');
@@ -60,7 +60,7 @@ INSERT INTO `cs_config` VALUES ('112', '1', 'ym', 'text', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('113', '1', 'msn', 'text', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('114', '1', 'service_email', 'text', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('115', '1', 'service_phone', 'text', '', '', '', '1');
-INSERT INTO `cs_config` VALUES ('116', '1', 'shop_closed', 'select', '0,1', '', '0', '1');
+INSERT INTO `cs_config` VALUES ('116', '1', 'info_closed', 'select', '0,1', '', '1', '1');
 INSERT INTO `cs_config` VALUES ('117', '1', 'close_comment', 'textarea', '', '', '', '1');
 INSERT INTO `cs_config` VALUES ('118', '1', 'shop_logo', 'file', '', '../themes/{$template}/images/', '', '1');
 INSERT INTO `cs_config` VALUES ('119', '1', 'licensed', 'select', '0,1', '', '0', '1');
@@ -68,7 +68,7 @@ INSERT INTO `cs_config` VALUES ('120', '1', 'user_notice', 'textarea', '', '', '
 INSERT INTO `cs_config` VALUES ('121', '1', 'shop_notice', 'textarea', '', '', '欢迎光临手机网,我们的宗旨：诚信经营、服务客户！\r\n<MARQUEE onmouseover=this.stop() onmouseout=this.start() \r\nscrollAmount=3><U><FONT color=red>\r\n<P>咨询电话010-10124444  010-21252454 8465544</P></FONT></U></MARQUEE>', '1');
 INSERT INTO `cs_config` VALUES ('122', '1', 'shop_reg_closed', 'select', '1,0', '', '0', '1');
 INSERT INTO `cs_config` VALUES ('201', '2', 'lang', 'manual', '', '', 'zh_cn', '1');
-INSERT INTO `cs_config` VALUES ('202', '2', 'icp_number', 'text', '', '', '', '1');
+INSERT INTO `cs_config` VALUES ('202', '2', 'basic_icp', 'text', '', '', '123', '1');
 INSERT INTO `cs_config` VALUES ('203', '2', 'icp_file', 'file', '', '../cert/', '', '1');
 INSERT INTO `cs_config` VALUES ('204', '2', 'watermark', 'file', '', '../images/', '', '1');
 INSERT INTO `cs_config` VALUES ('205', '2', 'watermark_place', 'select', '0,1,2,3,4,5', '', '1', '1');
@@ -82,7 +82,7 @@ INSERT INTO `cs_config` VALUES ('212', '2', 'integral_percent', 'text', '', '', 
 INSERT INTO `cs_config` VALUES ('213', '2', 'sn_prefix', 'text', '', '', 'ECS', '1');
 INSERT INTO `cs_config` VALUES ('214', '2', 'comment_check', 'select', '0,1', '', '1', '1');
 INSERT INTO `cs_config` VALUES ('215', '2', 'no_picture', 'file', '', '../images/', '', '1');
-INSERT INTO `cs_config` VALUES ('218', '2', 'stats_code', 'textarea', '', '', '', '1');
+INSERT INTO `cs_config` VALUES ('218', '2', 'basic_statscode', 'textarea', '', '', '123', '1');
 INSERT INTO `cs_config` VALUES ('219', '2', 'cache_time', 'text', '', '', '3600', '1');
 INSERT INTO `cs_config` VALUES ('220', '2', 'register_points', 'text', '', '', '0', '1');
 INSERT INTO `cs_config` VALUES ('221', '2', 'enable_gzip', 'select', '0,1', '', '0', '1');
@@ -206,3 +206,4 @@ INSERT INTO `cs_config` VALUES ('804', '8', 'sms_order_shipped', 'select', '1,0'
 INSERT INTO `cs_config` VALUES ('901', '9', 'wap_config', 'select', '1,0', '', '0', '1');
 INSERT INTO `cs_config` VALUES ('902', '9', 'wap_logo', 'file', '', '../images/', '', '1');
 INSERT INTO `cs_config` VALUES ('903', '2', 'message_check', 'select', '1,0', '', '1', '1');
+INSERT INTO `cs_config` VALUES ('123', '1', 'info_ceoemail', 'text', '', '', 'abc@abc.om', '1');
