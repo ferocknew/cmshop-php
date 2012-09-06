@@ -10,6 +10,8 @@ class act_admin_set {
 	 * 站点设置
 	 */
 	public static function cms_config() {
+		$smartyData = model_admin_set::cms_config_get();
+		base_cmshop::smarty() -> assign("data", $smartyData);
 		base_cmshop::smarty() -> display(self::$htmlDir . '/cms_config.html');
 
 	}
@@ -31,8 +33,8 @@ class act_admin_set {
 			}
 		}
 
-		print_r($data);
-		model_admin_set::cms_config_save($data);
+		if (model_admin_set::cms_config_save($data))
+			exit("ok!");
 	}
 
 }

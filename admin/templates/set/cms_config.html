@@ -12,15 +12,15 @@
 								<td id="bbsifopen" class="td2">
 								<ul style="float:none;width:200px;" class="list_A cc">
 									<li class="current">
-										<input type="radio" checked="checked" name="info[closed]" value="1">
+										<input type="radio" name="info[closed]" value="1" {if $data.info[closed]==1}checked="checked"{/if} />
 										完全开放
 									</li>
 									<li>
-										<input type="radio" name="info[closed]" value="2">
+										<input type="radio" name="info[closed]" value="2" {if $data.info[closed]==2}checked="checked"{/if} />
 										内部开放
 									</li>
 									<li>
-										<input type="radio" name="info[closed]" value="0">
+										<input type="radio" name="info[closed]" value="0" {if $data.info[closed]==0}checked="checked"{/if} />
 										完全关闭
 									</li>
 								</ul></td>
@@ -36,7 +36,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">网站名称</td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="网站名称" name="info[name]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="{$data.info[name]}" name="info[name]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -46,7 +46,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">网站标题</td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="网站标题" name="info[title]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="{$data.info[title]}" name="info[title]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -56,7 +56,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">网站描述</td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="网站标题" name="info[description]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="{$data.info[description]}" name="info[description]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -66,7 +66,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">网站关键字</td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="网站标题" name="info[keywords]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="{$data.info[keywords]}" name="info[keywords]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -76,7 +76,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">管理员电子邮箱</td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'email'" value="web@web.com" name="info[ceoemail]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'email'" value="{$data.info[ceoemail]}" name="info[ceoemail]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -86,7 +86,7 @@
 							<tr class="tr1 vt">
 								<td class="td1">ICP证书或ICP备案证书号: </td>
 								<td class="td2">
-								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="网站标题" name="basic[icp]" />
+								<input class="easyui-validatebox input_wb input" data-options="required:true,validType:'length[1,20]'" value="{$data.basic[icp]}" name="basic[icp]" />
 								</td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
@@ -95,7 +95,7 @@
 							</tr>
 							<tr class="tr1 vt">
 								<td class="td1">第三方统计代码</td>
-								<td class="td2">								<textarea class="easyui-validatebox textarea" name="basic[statscode]"></textarea></td>
+								<td class="td2">								<textarea class="easyui-validatebox textarea" name="basic[statscode]">{$data.basic[statscode]}</textarea></td>
 								<td class="td2">
 								<div class="help_a" style="display: block;">
 									在第三方网站上注册并获得统计代码，并将统计代码粘贴在下面文本框中即可
