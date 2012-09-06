@@ -31,7 +31,7 @@ CREATE TABLE `cs_config` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `code` (`configkey`) USING HASH,
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_config
