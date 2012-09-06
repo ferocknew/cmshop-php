@@ -29,9 +29,9 @@ CREATE TABLE `cs_config` (
   `value` varchar(4000) NOT NULL COMMENT '值',
   `sort_order` tinyint(3) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`configkey`) USING HASH,
+  UNIQUE KEY `configkey` (`configkey`) USING HASH,
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=904 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of cs_config
